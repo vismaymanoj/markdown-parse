@@ -39,7 +39,7 @@ public class MarkdownParseTest {
         Path fileName = Path.of("test-file3.md");
 	    String contents = Files.readString(fileName);
         ArrayList<String> links = MarkdownParse.getLinks(contents);
-        output.add("https://something.com ");
+        output.add("https://something.com");
         assertEquals(output, links);
     }
     @Test
