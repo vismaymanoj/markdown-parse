@@ -33,8 +33,8 @@ public class MarkdownParseTest {
         output.add("https://something.com");
         assertEquals(output, links);
     }
-    @Test
-    public void links3() throws IOException {
+   @Test
+        public void links3() throws IOException {
         ArrayList<String> output = new ArrayList<>();
         Path fileName = Path.of("test-file3.md");
 	    String contents = Files.readString(fileName);
