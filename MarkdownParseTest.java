@@ -4,6 +4,8 @@ import org.junit.*;
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
+import java.sql.Struct;
+import java.util.ArrayList;
 import java.util.List;
 
 public class MarkdownParseTest {
@@ -35,4 +37,18 @@ public class MarkdownParseTest {
         assertEquals(expect, MarkdownParse.getLinks(contents));
     }
 
-}
+
+    @Test
+    public void links5() throws IOException{
+        ArrayList<String> output = new ArrayList<>();
+        output.add("url.com");
+        output.add("`google.com");
+        output.add("google.com");
+        output.add("ucsd.edu");
+        String real = "test-file5.md";
+        Path fileName = Path.of(real);
+        String contents = Files.readString(fileName);
+        ArrayList<String> links = MarkdownParse.getLinks(contents);
+        assertEquals(output, links);
+    }
+}   
